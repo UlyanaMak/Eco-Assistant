@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 x:Class="Recycler.App"
+             xmlns:local ="clr-namespace:Recycler">
+	<Application.Resources>
+		<ResourceDictionary>
+            
+            <LinearGradientBrush x:Key="bruh" StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Offset="0.1" Color="#A8DF8E"/>
+                <GradientStop Offset="0.5" Color="#DBEED2"/>
+                <GradientStop Offset="1" Color="#A8DF8E"/>
+            </LinearGradientBrush>
+            <Style x:Key="head" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="White"></Setter>
+                <Setter Property="Padding" Value="10"></Setter>
+            </Style>
+            <Style x:Key="l_header" TargetType="Label">
+                <Setter Property="TextColor" Value="#A8DF8E"></Setter>
+                <Setter Property="FontFamily" Value="Inter"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="FontSize" Value="35"></Setter>
+                <Setter Property="Margin" Value="40,30,0,0"></Setter>
+            </Style>
+            <Style x:Key="l_app_name" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="FontSize" Value="15"></Setter>
+                <Setter Property="FontAttributes" Value="None"></Setter>
+                <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                <Setter Property="Margin" Value="0,2,0,0"></Setter>
+                <Setter Property="Text" Value="{x:Static local:App.AppName}"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="{StaticResource bruh}"></Setter>
+                <Setter Property="HeightRequest" Value="167"></Setter>
+                <Setter Property="Margin" Value="0,20,0,0"></Setter>
+            </Style>
+            <Style x:Key="bt_code_selected" TargetType="Button">
+                <Setter Property="Opacity" Value="0.5"></Setter>
+            </Style>
+            <Style x:Key="bt_map_top" TargetType="Button">
+                <Setter Property="Background" Value="#F5EFE6"></Setter>
+                <Setter Property="CornerRadius" Value="15"></Setter>
+                <Setter Property="Font" Value="Inter"></Setter>
+                <Setter Property="FontSize" Value="15"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="Margin" Value="0,15,0,0"></Setter>
+                <Setter Property="WidthRequest" Value="200"></Setter>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="20"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="Margin" Value="30,0,30,20"></Setter>
+            </Style>
+            <Style x:Key="text_base" TargetType="Label">
+                <Setter Property="FontSize" Value="15"></Setter>
+                <Setter Property="Margin" Value="20,5,0,5"></Setter>
+            </Style>
+            <Style x:Key="text_l" TargetType="Label" BasedOn="{StaticResource text_base}">
+                <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
+            </Style>
+            <Style x:Key="text_r" TargetType="Label" BasedOn="{StaticResource text_base}">
+                <Setter Property="HorizontalTextAlignment" Value="End"></Setter>
+                <Setter Property="Margin" Value="0,0,20,0"></Setter>
+            </Style>
+            <Style TargetType="Button" x:Key="bt_gotoMap">
+                <Setter Property="Text" Value="Перейти к карте"></Setter>
+                <Setter Property="Margin" Value="0,0,0,20"></Setter>
+                <Setter Property="HeightRequest" Value="68"></Setter>
+                <Setter Property="Background" Value="#BFE3AE"></Setter>
+                <Setter Property="CornerRadius" Value="15"></Setter>
+            </Style>
+            <Style TargetType="Button" x:Key="bt_additional">
+                <Setter Property="Background" Value="#BFE3AE"></Setter>
+                <Setter Property="CornerRadius" Value="15"></Setter>
+                <Setter Property="HeightRequest" Value="39"></Setter>
+            </Style>
+            <Style x:Key="bt_selection" TargetType="Button">
+                <Setter Property="CornerRadius" Value="15"></Setter>
+                <Setter Property="HeightRequest" Value="66"></Setter>
+            </Style>
+            <Style TargetType="Button" x:Key="bt_back">
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+            </Style>
+            <Style TargetType="Button" x:Key="bt_bottom">
+                <Setter Property="WidthRequest" Value="180"></Setter>
+                <Setter Property="BackgroundColor" Value="#F6FDF3"></Setter>
+                <Setter Property="HeightRequest" Value="52"></Setter>
+            </Style>
+            <Style x:Key="bg" TargetType="ContentPage">
+                <Setter Property="BackgroundImageSource" Value="bg.png"></Setter>
+            </Style>
+        </ResourceDictionary>
+	</Application.Resources>
+</Application>

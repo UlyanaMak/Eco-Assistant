@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Recycler.Waste_Types._Hazardous"
+             xmlns:local="clr-namespace:Recycler">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Style="{StaticResource head}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="64"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="64"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Image Source="recycle_logo.png" Grid.Column="0"></Image>
+                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{x:Static local:App.AppName}" Grid.Column="1" Style="{StaticResource Key=l_app_name}"></Label>
+                </Grid>
+            </Frame>
+            <Label Style="{StaticResource l_header}" Text="Опасные отходы"></Label>
+            <Button x:Name="bt_bat" Clicked="bt_bat_Clicked" Text="Батарейки и аккумуляторы"></Button>
+            <Button x:Name="bt_chem" Clicked ="bt_chem_Clicked"  Text="Химические вещества"></Button>
+            <Button x:Name="bt_pharma" Clicked ="bt_pharma_Clicked"  Text="Фармацевтические препараты"></Button>
+            <Button x:Name="bt_electric" Clicked ="bt_electric_Clicked" Text="Электронные отходы"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

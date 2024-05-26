@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Recycler.Waste_Types.Recyclable.Metal"
+             xmlns:local="clr-namespace:Recycler">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Style="{StaticResource head}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="64"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="64"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Image Source="recycle_logo.png" Grid.Column="0"></Image>
+                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{x:Static local:App.AppName}" Grid.Column="1" Style="{StaticResource Key=l_app_name}"></Label>
+                </Grid>
+            </Frame>
+            <Label Style="{StaticResource l_header}" Text="Металл"></Label>
+            <Label Text="Почему нельзя на свалку?"></Label>
+            <Label Style="{StaticResource text_l}" Text="Очень долгий процесс распада, в течение которого образуется множество отравляющих веществ."></Label>
+            <Label Style="{StaticResource text_l}" Text="На отравленной почве выращиваются культуры, употребляемые человеком и животными, в организмах которых происходит накопительных эффект вредных веществ."></Label>
+
+            <Label Text="Не пригодно к переработке" HorizontalTextAlignment="End"></Label>
+            <Label Style="{StaticResource text_r}" Text="всё, что относится к вооруженным силам"></Label>
+            <Label Style="{StaticResource text_r}" Text="исправный транспорт"></Label>
+            <Label Style="{StaticResource text_r}" Text="неразрезанные баллоны и баки"></Label>
+            <Label Style="{StaticResource text_r}" Text="железнодорожное оборудование"></Label>
+            <Label Style="{StaticResource text_r}" Text="электрическое оборудование"></Label>
+
+            <Button Style="{StaticResource bt_gotoMap}" Clicked="bt_mapClicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

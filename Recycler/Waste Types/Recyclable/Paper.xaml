@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 x:Class="Recycler.Waste_Types.Recyclable.Paper"
+			 xmlns:local="clr-namespace:Recycler">
+	<ContentPage.Content>
+        <StackLayout>
+            <Frame Style="{StaticResource head}">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="64"></ColumnDefinition>
+						<ColumnDefinition Width="*"></ColumnDefinition>
+						<ColumnDefinition Width="64"></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*"></RowDefinition>
+					</Grid.RowDefinitions>
+					<Image Source="recycle_logo.png" Grid.Column="0"></Image>
+					<Label Grid.Column="1" Style="{StaticResource Key=l_app_name}"></Label>
+				</Grid>
+			</Frame>
+			<Label Style="{StaticResource l_header}" Text="Бумага"></Label>
+			<ScrollView>
+                <StackLayout Padding="0,0,40,0">
+                    <Label Style="{StaticResource text_l}" Text="Какая макулатура принимается в переработку?" FontSize="20"></Label>
+                    <Label Style="{StaticResource text_l}" Text="• Картон"></Label>
+                    <Label Style="{StaticResource text_l}" Text="• Печатная продукция: книги, глянцевые журналы,газеты, офисная бумага, тетради,почтовый спам, бумажная упаковка"></Label>
+                    <Label Style="{StaticResource text_l}" Text="• Измельчённая бумага"></Label>
+                    <Label Style="{StaticResource text_l}" Text="• Рисунки с гуашью, акварелью, с клеем, цветной бумагой, мелками фломастерами, карандашами"></Label>
+                    <Label Style="{StaticResource text_l}" Margin="0,0,0,20" Text="• Календари"></Label>
+
+                    <Label Style="{StaticResource text_r}" Text="Какая макулатура не принимается в переработку?" FontSize="20"></Label>
+                    <Label Style="{StaticResource text_r}" Text="• Упаковка от соков, молочных продуктов"></Label>
+                    <Label Style="{StaticResource text_r}" Text="• Грязная макулатура "></Label>
+                    <Label Style="{StaticResource text_r}" Text="• Бумажные салфетки и полотенца"></Label>
+                    <Label Style="{StaticResource text_r}" Text="• Пергаментная, бумага для выпечки, вощёная, калька"></Label>
+                    <Label Style="{StaticResource text_r}" Text="• Бумажные стаканчики"></Label>
+                    <Label Style="{StaticResource text_r}" Text="• Чеки и бумага для факсов"></Label>
+                    <Label Style="{StaticResource text_r}" Text="• Фотобумага"></Label>
+                    <Label Style="{StaticResource text_r}" Text="• Обои"></Label>
+                    <Label Style="{StaticResource text_r}" Margin="0,0,0,20" Text="• Рисунки из мелков, растопленных утюгом; рисунки из пластилина; картины масляными красками"></Label>
+
+                    <Label Style="{StaticResource text_r}" FontSize="20" Text="Как подготовить к переработке?"></Label>
+                    <Label Style="{StaticResource text_r}" Text="1. Убедиться в отсутствии тонкой плёнки ламинирования - надорвите край изделия, если плёнка не тянется и не видна, то можно сдавать."></Label>
+                    <Label Style="{StaticResource text_r}" Text="2. Удалить металлические элементы — пружины, скрепки, скобы от степлера"></Label>
+                    <Label Style="{StaticResource text_r}" Text="3. Удалить пластиковые элементы."></Label>
+                    <Label Style="{StaticResource text_r}" Text="4. Объемные коробки сложить."></Label>
+                    <Label Style="{StaticResource text_r}" Text="5. Все стопки перевязать верёвкой (бечёвкой)."></Label>
+
+                    <Label Text="Куда сдавать в городе Пермь?" HorizontalTextAlignment="Center" Margin="0,0,0,20"></Label>
+                    <Button x:Name="bt_map" Clicked="bt_map_Clicked" Style="{StaticResource bt_gotoMap}"></Button>
+                </StackLayout>
+			</ScrollView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

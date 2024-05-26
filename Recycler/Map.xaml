@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 x:Class="Recycler.Map"
+			 xmlns:local="clr-namespace:Recycler"
+			 xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="64"></RowDefinition>
+                <RowDefinition Height="61"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="52"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Frame Grid.Row="0" Style="{StaticResource head}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="64"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="64"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+                    <Label Style="{StaticResource l_app_name}" Grid.ColumnSpan="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{x:Static local:App.AppName}" Grid.Column="1" Grid.Row="0"></Label>
+                    <ImageButton Clicked="bt_back_Clicked" BackgroundColor="Transparent" Source="bt_back" Grid.Column="0" Grid.Row="0"></ImageButton>
+                    <ImageButton Source = "link" BackgroundColor="Transparent" Clicked="bt_user_guide_Clicked" x:Name="bt_user_guide" Grid.Column="3" Grid.Row="0"></ImageButton>
+                </Grid>
+            </Frame>
+            <maps:Map Grid.Row="1" Grid.RowSpan="2" x:Name="map">
+                <x:Arguments>
+                    <maps:MapSpan>
+                        <x:Arguments>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>58.010455</x:Double>
+                                    <x:Double>56.229443</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <x:Double>0.1</x:Double>
+                            <x:Double>0.1</x:Double>
+                        </x:Arguments>
+                    </maps:MapSpan>
+                </x:Arguments>
+            </maps:Map>
+            <ScrollView Orientation="Horizontal" Grid.Row="1">
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="bt_organic" Clicked="bt_Clicked" Text="Пищевые" Style="{StaticResource bt_map_top}"></Button>
+                    <Button x:Name="bt_garden" Clicked="bt_Clicked" Text="Садовые" Style="{StaticResource bt_map_top}"></Button>
+
+                    <Button x:Name="bt_animal" Clicked="bt_Clicked" Text="Животные" Style="{StaticResource bt_map_top}"></Button>
+                    <Button x:Name="bt_paper" Clicked="bt_Clicked" Text="Бумага" Style="{StaticResource bt_map_top}"></Button>
+
+                    <Button x:Name="bt_glass" Clicked="bt_Clicked" Text="Стекло" Style="{StaticResource bt_map_top}"></Button>
+                    <Button x:Name="bt_plastic" Clicked="bt_Clicked" Text="Пластик" Style="{StaticResource bt_map_top}"></Button>
+
+                    <Button x:Name="bt_metal" Clicked="bt_Clicked" Text="Металл" Style="{StaticResource bt_map_top}"></Button>
+                    <Button x:Name="bt_battaries" Clicked="bt_Clicked" Text="Батарейки" Style="{StaticResource bt_map_top}"></Button>
+
+                    <Button x:Name="bt_chem" Clicked="bt_Clicked" Text="Химические" Style="{StaticResource bt_map_top}"></Button>
+                    <Button x:Name="bt_electro" Clicked="bt_Clicked" Text="Электронные" Style="{StaticResource bt_map_top}"></Button>
+
+                    <Button x:Name="bt_pharma" Clicked="bt_Clicked" Text="Фармацевтические" Style="{StaticResource bt_map_top}"></Button>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Grid.Row="3">
+                <ImageButton HorizontalOptions="Start" Style="{StaticResource bt_bottom}" x:Name="bt_bottom_home" Clicked="bt_bottom_home_Clicked" Source="bt_bottom_home"></ImageButton>
+                <ImageButton HorizontalOptions="End" Style="{StaticResource bt_bottom}" x:Name="bt_bottom_map" Source="bt_bottom_map"></ImageButton>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
