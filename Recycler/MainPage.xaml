@@ -9,30 +9,31 @@
         <Frame Style="{StaticResource head}">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="54"></RowDefinition>
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="64"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="64"></ColumnDefinition>
+
                 </Grid.ColumnDefinitions>
-                
-                <Image Source="recycle_logo" Grid.Column="0"></Image>
-                <Label Text="{Static local:App.AppName}" Grid.Column="1" Style="{StaticResource l_app_name}"></Label>
-                <ImageButton Source="link" BackgroundColor="Transparent" Grid.Column="2" Clicked="bt_user_guide_Clicked"></ImageButton>
+                <Label Style="{StaticResource l_app_name}" Grid.ColumnSpan="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{x:Static local:App.AppName}" Grid.Column="1" Grid.Row="0"></Label>
+                <Image Source="recycle_logo"  Grid.Column="0" Grid.Row="0"></Image>
+                <ImageButton Source = "link" BackgroundColor="Transparent" Clicked="bt_user_guide_Clicked" x:Name="bt_user_guide" Grid.Column="3" Grid.Row="0"></ImageButton>
             </Grid>
         </Frame>
+        <Label Text="Главное меню" TextTransform="None" Style="{StaticResource l_header}"></Label>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-        <Label HorizontalTextAlignment="Center" Margin="0,30,0,0" Text="Главное меню" Style="{StaticResource l_header}"></Label>
-        <Button Grid.Row="0" x:Name="bt_wasteType" Clicked="bt_wasteType_Clicked" Text="Виды отходов"></Button>
-        <Button Grid.Row="1" x:Name="bt_codes" Clicked="bt_codes_Clicked" Text="Коды переработки"></Button>
-        <Button Grid.Row="2" x:Name="bt_map" Clicked="bt_map_Clicked" Text="Карта"></Button>
+            <Button Grid.Row="0" x:Name="bt_wasteType" Clicked="bt_wasteType_Clicked" Text="Виды отходов" TextTransform="None" FontSize="23"></Button>
+            <Button Grid.Row="1" x:Name="bt_codes" Clicked="bt_codes_Clicked" Text="Коды переработки" TextTransform="None" FontSize="23"></Button>
+            <Button Grid.Row="2" x:Name="bt_map" Clicked="bt_map_Clicked" Text="Карта" TextTransform="None" FontSize="23"></Button>
         </Grid>
         <StackLayout VerticalOptions="EndAndExpand" Orientation="Horizontal">
             <ImageButton HorizontalOptions="Start" Style="{StaticResource bt_bottom}" x:Name="bt_bottom_home" Clicked="bt_bottom_home_Clicked" Source="bt_bottom_home"></ImageButton>

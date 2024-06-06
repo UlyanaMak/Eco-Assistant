@@ -10,7 +10,7 @@
             <Frame Style="{StaticResource head}">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="52"></RowDefinition>
+                        <RowDefinition Height="54"></RowDefinition>
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>

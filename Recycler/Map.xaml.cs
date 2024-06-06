@@ -7,6 +7,7 @@ using Xamarin.Essentials;
 namespace Recycler
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
+
 	public partial class Map : ContentPage
 	{
 		public enum MapMode
@@ -340,123 +341,261 @@ namespace Recycler
 		{
 			InitializeComponent();
 
-			//map = new Xamarin.Forms.Maps.Map(new MapSpan(new Position(58.010455, 56.229443), 58.010455, 56.229443));
+			//var map = new Xamarin.Forms.Maps.Map(new MapSpan(new Position(58.010455, 56.229443), 58.010455, 56.229443));
+
+			
 		}
 		public Map(MapMode mode)
 		{
 			InitializeComponent();
 			switch (mode)
 			{
-				case MapMode.Plastic: { foreach (Pin pin in PlasticPins) map.Pins.Add(pin); break; }
-				case MapMode.Paper: { foreach (Pin pin in PaperPins) map.Pins.Add(pin); break; }
-				case MapMode.Food: { foreach (Pin pin in FoodPins) map.Pins.Add(pin); break; }
-				case MapMode.Chem: { foreach (Pin pin in ChemPins) map.Pins.Add(pin); break; }
-				case MapMode.Pharma: { foreach (Pin pin in PharmaPins) map.Pins.Add(pin); break; }
-				case MapMode.Electro: { foreach (Pin pin in ElectroPins) map.Pins.Add(pin); break; }
-				case MapMode.Battaries: { foreach (Pin pin in BattariesPins) map.Pins.Add(pin); break; }
-				case MapMode.Garden: { foreach (Pin pin in GardenPins) map.Pins.Add(pin); break; }
-				case MapMode.Animal: { foreach (Pin pin in AnimalPins) map.Pins.Add(pin); break; }
-				case MapMode.Metal: { foreach (Pin pin in MetalPins) map.Pins.Add(pin); break; }
-				case MapMode.Glass: { foreach (Pin pin in GlassPins) map.Pins.Add(pin); break; }
+				case MapMode.Plastic: 
+					{ 
+						foreach (Pin pin in PlasticPins) 
+							map.Pins.Add(pin);
+						wasteLabel.Text = "Пункты приёма пластика";
+						wasteLabel.IsVisible = true;
+						break; 
+					}
+				case MapMode.Paper: 
+					{ 
+						foreach (Pin pin in PaperPins) 
+							map.Pins.Add(pin);
+                        wasteLabel.Text = "Пункты приёма бумаги";
+                        wasteLabel.IsVisible = true;
+                        break; 
+					}
+				case MapMode.Food: 
+					{ 
+						foreach (Pin pin in FoodPins) 
+							map.Pins.Add(pin);
+                        wasteLabel.Text = "Пункты приёма пищевых отходов";
+                        wasteLabel.IsVisible = true;
+                        break; 
+					}
+				case MapMode.Chem: 
+					{ 
+						foreach (Pin pin in ChemPins) 
+							map.Pins.Add(pin);
+                        wasteLabel.Text = "Пункты приёма химических отходов";
+                        wasteLabel.IsVisible = true;
+                        break; 
+					}
+				case MapMode.Pharma: 
+					{ 
+						foreach (Pin pin in PharmaPins) 
+							map.Pins.Add(pin);
+                        wasteLabel.Text = "Пункты приёма фарм отходов";
+                        wasteLabel.IsVisible = true;
+                        break; 
+					}
+				case MapMode.Electro: 
+					{ 
+						foreach (Pin pin in ElectroPins) 
+							map.Pins.Add(pin);
+                        wasteLabel.Text = "Пункты приёма электронных отходов";
+                        wasteLabel.IsVisible = true;
+                        break; 
+					}
+				case MapMode.Battaries: 
+					{ 
+						foreach (Pin pin in BattariesPins) 
+							map.Pins.Add(pin);
+                        wasteLabel.Text = "Пункты приёма батареек";
+                        wasteLabel.IsVisible = true;
+                        break; 
+					}
+				case MapMode.Garden: 
+					{ 
+						foreach (Pin pin in GardenPins) 
+							map.Pins.Add(pin);
+                        wasteLabel.Text = "Пункты приёма садовых отходов";
+                        wasteLabel.IsVisible = true;
+                        break; 
+					}
+				case MapMode.Animal: 
+					{ 
+						foreach (Pin pin in AnimalPins) 
+							map.Pins.Add(pin);
+                        wasteLabel.Text = "Пункты приёма животных отходов";
+                        wasteLabel.IsVisible = true;
+                        break; 
+					}
+				case MapMode.Metal: 
+					{ 
+						foreach (Pin pin in MetalPins) 
+							map.Pins.Add(pin);
+                        wasteLabel.Text = "Пункты приёма металла";
+                        wasteLabel.IsVisible = true;
+                        break; 
+					}
+				case MapMode.Glass: 
+					{ 
+						foreach (Pin pin in GlassPins) 
+							map.Pins.Add(pin);
+                        wasteLabel.Text = "Пункты приёма стекла";
+                        wasteLabel.IsVisible = true;
+                        break; 
+					}
 			}
 		}
 
 		void Toggle(MapMode mode)
 		{
-			while(map.Pins.Count != 0)
+            while (map.Pins.Count != 0)
 			{
 				map.Pins.RemoveAt(0);
-			}
-			if (CurrentMode != mode)
+				wasteLabel.IsVisible = false;
+            }
+            if (CurrentMode != mode)
 				switch (mode)
 				{
 					case MapMode.Paper:
 						{
 							foreach (Pin pin in PaperPins) map.Pins.Add(pin);
+							wasteLabel.IsVisible=true;
 							CurrentMode = MapMode.Paper;
 							break;
 						}
 					case MapMode.Food:
 						{
 							foreach (Pin pin in FoodPins) map.Pins.Add(pin);
-							CurrentMode = MapMode.Food;
+                            wasteLabel.IsVisible = true;
+                            CurrentMode = MapMode.Food;
 							break;
 						}
 					case MapMode.Plastic:
 						{
+							
 							foreach (Pin pin in PlasticPins) map.Pins.Add(pin);
-							CurrentMode = MapMode.Plastic;
+                            wasteLabel.IsVisible = true;
+                            CurrentMode = MapMode.Plastic;
 							break;
 						}
 					case MapMode.Chem:
 						{
 							foreach (Pin pin in ChemPins) map.Pins.Add(pin);
-							CurrentMode = MapMode.Chem;
+                            wasteLabel.IsVisible = true;
+                            CurrentMode = MapMode.Chem;
 							break;
 						}
 					case MapMode.Pharma:
 						{
 							foreach (Pin pin in PharmaPins) map.Pins.Add(pin);
-							CurrentMode = MapMode.Pharma;
+                            wasteLabel.IsVisible = true;
+                            CurrentMode = MapMode.Pharma;
 							break;
 						}
 					case MapMode.Garden:
 						{
 							foreach (Pin pin in GardenPins) map.Pins.Add(pin);
-							CurrentMode = MapMode.Garden;
+                            wasteLabel.IsVisible = true;
+                            CurrentMode = MapMode.Garden;
 							break;
 						}
 					case MapMode.Animal:
 						{
-							foreach (Pin pin in AnimalPins) map.Pins.Add(pin);
-							CurrentMode = MapMode.Animal;
+                            foreach (Pin pin in AnimalPins) map.Pins.Add(pin);
+                            wasteLabel.IsVisible = true;
+                            CurrentMode = MapMode.Animal;
 							break;
 						}
 					case MapMode.Battaries:
 						{
 							foreach (Pin pin in BattariesPins) map.Pins.Add(pin);
-							CurrentMode = MapMode.Battaries;
+                            wasteLabel.IsVisible = true;
+                            CurrentMode = MapMode.Battaries;
 							break;
 						}
 					case MapMode.Electro:
 						{
+							
 							foreach (Pin pin in ElectroPins) map.Pins.Add(pin);
-							CurrentMode = MapMode.Electro;
+                            wasteLabel.IsVisible = true;
+                            CurrentMode = MapMode.Electro;
 							break;
 						}
 					case MapMode.Glass:
 						{
 							foreach (Pin pin in GlassPins) map.Pins.Add(pin);
-							CurrentMode = MapMode.Glass;
+                            wasteLabel.IsVisible = true;
+                            CurrentMode = MapMode.Glass;
 							break;
 						}
 					case MapMode.Metal:
 						{
 							foreach (Pin pin in MetalPins) map.Pins.Add(pin);
-							CurrentMode = MapMode.Metal;
+                            wasteLabel.IsVisible = true;
+                            CurrentMode = MapMode.Metal;
 							break;
 						}
 				}
 			else CurrentMode = MapMode.None;
 		}
-		private void bt_Clicked(object sender, EventArgs e)
+
+       
+        private void bt_Clicked(object sender, EventArgs e)
 		{
 			if (sender is Button)
 			{
 				Button bt = sender as Button;
-				if (bt == bt_animal) Toggle(MapMode.Animal);
-				else if (bt == bt_battaries) Toggle(MapMode.Battaries);
-				else if (bt == bt_chem) Toggle(MapMode.Chem);
-				else if (bt == bt_electro) Toggle(MapMode.Electro);
-				else if (bt == bt_garden) Toggle(MapMode.Garden);
-				else if (bt == bt_glass) Toggle(MapMode.Glass);
-				else if (bt == bt_metal) Toggle(MapMode.Metal);
-				else if (bt == bt_organic) Toggle(MapMode.Food);
-				else if (bt == bt_paper) Toggle(MapMode.Paper);
-				else if (bt == bt_pharma) Toggle(MapMode.Pharma);
-				else if (bt == bt_plastic) Toggle(MapMode.Plastic);
-
-			}
+				if (bt == bt_animal)
+				{
+                    Toggle(MapMode.Animal);
+                    wasteLabel.Text = "Пункты приёма животных отходов";
+				}
+				else if (bt == bt_battaries)
+                {
+                    Toggle(MapMode.Battaries);
+                    wasteLabel.Text = "Пункты приёма батареек";
+                } 
+				else if (bt == bt_chem)
+                {
+                    Toggle(MapMode.Chem);
+                    wasteLabel.Text = "Пункты приёма химических отходов";
+                }
+				else if (bt == bt_electro)
+				{
+                    Toggle(MapMode.Electro);
+                    wasteLabel.Text = "Пункты приёма электронных отходов";
+                }
+				else if (bt == bt_garden)
+				{
+                    Toggle(MapMode.Garden);
+                    wasteLabel.Text = "Пункты приёма садовых отходов";
+                }
+				else if (bt == bt_glass)
+				{
+                    Toggle(MapMode.Glass);
+                    wasteLabel.Text = "Пункты приёма стекла";
+                }
+				else if (bt == bt_metal)
+				{
+                    Toggle(MapMode.Metal);
+                    wasteLabel.Text = "Пункты приёма металла";
+                }
+				else if (bt == bt_organic)
+				{
+                    Toggle(MapMode.Food);
+                    wasteLabel.Text = "Пункты приёма пищевых отходов";
+                }
+				else if (bt == bt_paper)
+				{
+                    Toggle(MapMode.Paper);
+                    wasteLabel.Text = "Пункты приёма бумаги";
+                }
+				else if (bt == bt_pharma)
+				{
+                    Toggle(MapMode.Pharma);
+                    wasteLabel.Text = "Пункты приёма фарм отходов";
+                }
+				else if (bt == bt_plastic)
+				{
+                    Toggle(MapMode.Plastic);
+                    wasteLabel.Text = "Пункты приёма пластика";
+                }
+            }
 		}
 
 		private async void bt_bottom_home_Clicked(object sender, EventArgs e)

@@ -52,7 +52,12 @@ namespace Recycler
 				Style = Application.Current.Resources["bt_gotoMap"] as Style
 			};
 			bt_map.Clicked += (e, a) => { Navigation.PushAsync(new Map(mapMode)); };
-			if (mapMode != Map.MapMode.None) { Articles.Children.Add(new Label() { Style = new Style(typeof(Label)) { Setters = { new Setter() { Property = Label.MarginProperty, Value = new Thickness(0, 10, 0, 0) } } }, Text = "Куда сдавать в городе Пермь?", HorizontalTextAlignment = TextAlignment.Center }); Articles.Children.Add(bt_map); }
+			if (mapMode != Map.MapMode.None) 
+			{ 
+				Articles.Children.Add(new Label() { Style = new Style(typeof(Label)) { Setters = { new Setter() { Property = Label.MarginProperty, Value = new Thickness(0, 10, 0, 0) } } }, Text = "Куда сдавать в городе Пермь?", HorizontalTextAlignment = TextAlignment.Center }); 
+				Articles.Children.Add(bt_map); 
+				
+			}
 		}
 		public InfoPage()
 		{

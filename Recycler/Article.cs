@@ -15,7 +15,9 @@ namespace Recycler
 
         public Article(string header, string[] elements, HorizontalOptions options)
         {
-            Header = header; Elements = elements; Options = options;
+            Header = header; 
+            Elements = elements; 
+            Options = options;
         }
 		public Article(string header, string[] elements, HorizontalOptions options, Button bt)
 		{

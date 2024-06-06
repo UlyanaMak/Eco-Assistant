@@ -10,6 +10,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="64"></RowDefinition>
                 <RowDefinition Height="61"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="52"></RowDefinition>
             </Grid.RowDefinitions>
@@ -31,12 +32,12 @@
                         <ColumnDefinition Width="64"></ColumnDefinition>
 
                     </Grid.ColumnDefinitions>
-                    <Label Style="{StaticResource l_app_name}" Grid.ColumnSpan="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{x:Static local:App.AppName}" Grid.Column="1" Grid.Row="0"></Label>
+                    <Label Style="{StaticResource l_app_name}" Grid.ColumnSpan="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{x:Static local:App.AppName}" Grid.Column="1" Grid.Row="0" FontSize="20"></Label>
                     <ImageButton Clicked="bt_back_Clicked" BackgroundColor="Transparent" Source="bt_back" Grid.Column="0" Grid.Row="0"></ImageButton>
                     <ImageButton Source = "link" BackgroundColor="Transparent" Clicked="bt_user_guide_Clicked" x:Name="bt_user_guide" Grid.Column="3" Grid.Row="0"></ImageButton>
                 </Grid>
             </Frame>
-            <maps:Map Grid.Row="1" Grid.RowSpan="2" x:Name="map">
+            <maps:Map Grid.Row="1" Grid.RowSpan="3" x:Name="map">
                 <x:Arguments>
                     <maps:MapSpan>
                         <x:Arguments>
@@ -72,7 +73,8 @@
                     <Button x:Name="bt_pharma" Clicked="bt_Clicked" Text="Фармацевтические" Style="{StaticResource bt_map_top}"></Button>
                 </StackLayout>
             </ScrollView>
-            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Grid.Row="3">
+            <Label Grid.Row="2" x:Name="wasteLabel" Text="" HorizontalOptions="Center" Margin="0, 0, 0,0" IsVisible="True"></Label>
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Grid.Row="4">
                 <ImageButton HorizontalOptions="Start" Style="{StaticResource bt_bottom}" x:Name="bt_bottom_home" Clicked="bt_bottom_home_Clicked" Source="bt_bottom_home"></ImageButton>
                 <ImageButton HorizontalOptions="End" Style="{StaticResource bt_bottom}" x:Name="bt_bottom_map" Source="bt_bottom_map"></ImageButton>
             </StackLayout>

@@ -30,6 +30,7 @@
                 <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
                 <Setter Property="Margin" Value="0,2,0,0"></Setter>
                 <Setter Property="Text" Value="{x:Static local:App.AppName}"></Setter>
+                <Setter Property="FontSize" Value="20"/>
             </Style>
             <Style TargetType="Button">
                 <Setter Property="Background" Value="{StaticResource bruh}"></Setter>
@@ -43,8 +44,7 @@
                 <Setter Property="Background" Value="#F5EFE6"></Setter>
                 <Setter Property="CornerRadius" Value="15"></Setter>
                 <Setter Property="Font" Value="Inter"></Setter>
-                <Setter Property="FontSize" Value="15"></Setter>
-                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="FontSize" Value="17"></Setter>
                 <Setter Property="Margin" Value="0,15,0,0"></Setter>
                 <Setter Property="WidthRequest" Value="200"></Setter>
             </Style>
@@ -65,14 +65,16 @@
                 <Setter Property="HorizontalTextAlignment" Value="End"></Setter>
                 <Setter Property="Margin" Value="0,0,20,0"></Setter>
             </Style>
-            <Style TargetType="Button" x:Key="bt_gotoMap">
-                <Setter Property="Text" Value="Перейти к карте"></Setter>
-                <Setter Property="Margin" Value="0,0,0,20"></Setter>
+            <Style x:Key="bt_gotoMap" TargetType="Button">
+                <Setter Property="Text" Value="Перейти к карте" ></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="Margin" Value="10,10,10,20"></Setter>
                 <Setter Property="HeightRequest" Value="68"></Setter>
                 <Setter Property="Background" Value="#BFE3AE"></Setter>
                 <Setter Property="CornerRadius" Value="15"></Setter>
             </Style>
-            <Style TargetType="Button" x:Key="bt_additional">
+            <Style x:Key="bt_additional" TargetType="Button">
                 <Setter Property="Background" Value="#BFE3AE"></Setter>
                 <Setter Property="CornerRadius" Value="15"></Setter>
                 <Setter Property="HeightRequest" Value="39"></Setter>

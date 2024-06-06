@@ -6,7 +6,25 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout >
+            <Frame Style="{StaticResource head}" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="54"></RowDefinition>
+                    </Grid.RowDefinitions>
 
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="64"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="64"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+                    <Label Style="{StaticResource l_app_name}" Grid.ColumnSpan="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{x:Static local:App.AppName}" Grid.Column="1" Grid.Row="0" FontSize="20"></Label>
+                    <ImageButton Clicked="bt_back_Clicked" BackgroundColor="Transparent" Source="bt_back" Grid.Column="0" Grid.Row="0"></ImageButton>
+                    <ImageButton Source = "link" BackgroundColor="Transparent" Clicked="bt_user_guide_Clicked" x:Name="bt_user_guide" Grid.Column="3" Grid.Row="0"></ImageButton>
+                </Grid>
+            </Frame>
+            <Label  Text="Коды переработки" Style="{StaticResource l_header}"></Label>
             <ScrollView>
                 <StackLayout Orientation="Vertical">
                     <StackLayout.Resources>
@@ -17,68 +35,49 @@
                         </Style>
                     </ResourceDictionary>
                 </StackLayout.Resources>
-                <Frame Style="{StaticResource head}">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="64"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="64"></ColumnDefinition>
-
-                            </Grid.ColumnDefinitions>
-                            <Label Style="{StaticResource l_app_name}" Grid.ColumnSpan="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{x:Static local:App.AppName}" Grid.Column="1" Grid.Row="0"></Label>
-                            <ImageButton Clicked="bt_back_Clicked" BackgroundColor="Transparent" Source="bt_back" Grid.Column="0" Grid.Row="0"></ImageButton>
-                            <ImageButton Source = "link" BackgroundColor="Transparent" Clicked="bt_user_guide_Clicked" x:Name="bt_user_guide" Grid.Column="3" Grid.Row="0"></ImageButton>
-                        </Grid>
-                    </Frame>
-                   
-                    <Label HorizontalTextAlignment="Center" Margin="0,30,0,0" Text="Коды переработки"></Label>
                 
-                <StackLayout>
-                    <ImageButton x:Name="bt_code_01" Clicked="bt_code_Clicked" HeightRequest="113" Source="code_1.png"></ImageButton>
-                    <ImageButton x:Name="bt_code_02" Source="code_2.png" HeightRequest="113" Clicked="bt_code_Clicked"></ImageButton>
+                <StackLayout Spacing="40">
+                    <ImageButton x:Name="bt_code_01" Clicked="bt_code_Clicked" HeightRequest="113" Source="code_first.png"></ImageButton>
+                    <ImageButton x:Name="bt_code_02" Source="code_02.png" HeightRequest="113" Clicked="bt_code_Clicked"></ImageButton>
                 </StackLayout>
 
-                <StackLayout>
-                    <ImageButton x:Name="bt_code_03" HeightRequest="113" Clicked="bt_code_Clicked"  Source="code_3.png"></ImageButton>
-                    <ImageButton x:Name="bt_code_04" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_4.png"></ImageButton>
+                <StackLayout Spacing="40">
+                    <ImageButton x:Name="bt_code_03" HeightRequest="113" Clicked="bt_code_Clicked"  Source="code_03.png"></ImageButton>
+                    <ImageButton x:Name="bt_code_04" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_04.png"></ImageButton>
                 </StackLayout>
 
-                <StackLayout>
-                    <ImageButton x:Name="bt_code_05" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_5.png"></ImageButton>
-                    <ImageButton x:Name="bt_code_06" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_6.png"></ImageButton>
+                <StackLayout Spacing="40">
+                    <ImageButton x:Name="bt_code_05" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_05.png"></ImageButton>
+                    <ImageButton x:Name="bt_code_06" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_06.png"></ImageButton>
                 </StackLayout>
 
-                <StackLayout>
-                    <ImageButton x:Name="bt_code_07" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_7.png"></ImageButton>
-                    <ImageButton x:Name="bt_code_20" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_20.png"></ImageButton>
+                <StackLayout Spacing="40">
+                    <ImageButton x:Name="bt_code_07" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_07.png"></ImageButton>
+                    <ImageButton x:Name="bt_code_20" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_20pap.png"></ImageButton>
                 </StackLayout>
 
-                <StackLayout>
+                <StackLayout Spacing="40">
                     <ImageButton x:Name="bt_code_21" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_21.png"></ImageButton>
                     <ImageButton x:Name="bt_code_22" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_22.png"></ImageButton>
                 </StackLayout>
 
-                <StackLayout>
-                    <ImageButton x:Name="bt_code_23" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_23.png"></ImageButton>
+                <StackLayout Spacing="40">
+                    <ImageButton x:Name="bt_code_23" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_23pap.png"></ImageButton>
                     <ImageButton x:Name="bt_code_40" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_40.png"></ImageButton>
                 </StackLayout>
 
-                <StackLayout>
+                <StackLayout Spacing="40">
                     <ImageButton x:Name="bt_code_41" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_41.png"></ImageButton>
                     <ImageButton x:Name="bt_code_70" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_70.png"></ImageButton>
                 </StackLayout>
 
-                <StackLayout>
+                <StackLayout Spacing="40">
                     <ImageButton x:Name="bt_code_71" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_71.png"></ImageButton>
                     <ImageButton x:Name="bt_code_72" HeightRequest="113" Clicked="bt_code_Clicked" Source="code_72.png"></ImageButton>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
+            
             <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Grid.Row="2">
                 <ImageButton HorizontalOptions="Start" Style="{StaticResource bt_bottom}" x:Name="bt_bottom_home" Clicked="bt_bottom_home_Clicked" Source="bt_bottom_home"></ImageButton>
                 <ImageButton HorizontalOptions="End" Style="{StaticResource bt_bottom}" x:Name="bt_bottom_map" Clicked="bt_bottom_map_Clicked" Source="bt_bottom_map"></ImageButton>

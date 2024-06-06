@@ -20,15 +20,15 @@
                         <ColumnDefinition Width="64"></ColumnDefinition>
 
                     </Grid.ColumnDefinitions>
-                    <Label Style="{StaticResource l_app_name}" Grid.ColumnSpan="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{x:Static local:App.AppName}" Grid.Column="1" Grid.Row="0"></Label>
+                    <Label Style="{StaticResource l_app_name}" Grid.ColumnSpan="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{x:Static local:App.AppName}" Grid.Column="1" Grid.Row="0" FontSize="20"></Label>
                     <ImageButton Clicked="bt_back_Clicked" BackgroundColor="Transparent" Source="bt_back" Grid.Column="0" Grid.Row="0"></ImageButton>
                     <ImageButton Source = "link" BackgroundColor="Transparent" Clicked="bt_user_guide_Clicked" x:Name="bt_user_guide" Grid.Column="3" Grid.Row="0"></ImageButton>
                 </Grid>
             </Frame>
             <Label Text="Виды отходов" Style="{StaticResource l_header}"></Label>
-            <Button x:Name="bt_recyclable" Clicked="bt_recyclable_Clicked" Text="Перерабатываемые отходы" ></Button>
-            <Button x:Name="bt_hazardous" Clicked="bt_hazardous_Clicked" Text="Опасные отходы"></Button>
-            <Button x:Name="bt_organic" Clicked="bt_organic_Clicked" Text="Органические отходы"></Button>
+            <Button x:Name="bt_recyclable" Clicked="bt_recyclable_Clicked" Text="Перерабатываемые отходы"  TextTransform="None" FontSize="23"></Button>
+            <Button x:Name="bt_hazardous" Clicked="bt_hazardous_Clicked" Text="Опасные отходы"  TextTransform="None" FontSize="23"> </Button>
+            <Button x:Name="bt_organic" Clicked="bt_organic_Clicked" Text="Органические отходы"  TextTransform="None" FontSize="23"></Button>
             <StackLayout VerticalOptions="EndAndExpand" Orientation="Horizontal">
                 <ImageButton HorizontalOptions="Start" Style="{StaticResource bt_bottom}" x:Name="bt_bottom_home" Clicked="bt_bottom_home_Clicked" Source="bt_bottom_home"></ImageButton>
                 <ImageButton HorizontalOptions="End" Style="{StaticResource bt_bottom}" x:Name="bt_bottom_map" Clicked="bt_bottom_map_Clicked" Source="bt_bottom_map"></ImageButton>
