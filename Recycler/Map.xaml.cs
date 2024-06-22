@@ -10,22 +10,29 @@ namespace Recycler
 
 	public partial class Map : ContentPage
 	{
+		/// <summary>
+		/// Режимы обозначений на карте
+		/// </summary>
 		public enum MapMode
 		{
-			None,
-			Paper,
-			Metal,
-			Glass,
-			Plastic,
-			Battaries,
-			Chem,
-			Pharma,
-			Electro,
-			Food,
-			Garden,
-			Animal
+			None,      //нет
+			Paper,     //бумага
+			Metal,     //металл
+			Glass,     //стекло
+			Plastic,   //пластик
+			Battaries, //батарейки
+			Chem,      //химия
+			Pharma,    //фарма
+			Electro,   //электро
+			Food,      //пищевые
+			Garden,    //садовые
+			Animal     //животные
 		};
+
+		//Начальный режим - нет (при открытии карты)
 		MapMode CurrentMode = MapMode.None;
+
+		//Список пинов для обозначений на карте (пластик)
 		List<Pin> PlasticPins = new List<Pin>()
 		{
 			new Pin()
@@ -71,7 +78,9 @@ namespace Recycler
 				Type = PinType.Place
 			},
 		};
-		List<Pin> PaperPins = new List<Pin>()
+
+        //Список пинов для обозначений на карте (бумага)
+        List<Pin> PaperPins = new List<Pin>()
 		{
 			new Pin()
 			{
@@ -95,7 +104,9 @@ namespace Recycler
 				Type = PinType.Place
 			}
 		};
-		List<Pin> MetalPins = new List<Pin>()
+
+        //Список пинов для обозначений на карте (металл)
+        List<Pin> MetalPins = new List<Pin>()
 		{
 			new Pin()
 			{
@@ -133,7 +144,9 @@ namespace Recycler
 				Type = PinType.Place
 			},
 		};
-		List<Pin> GlassPins = new List<Pin>()
+
+        //Список пинов для обозначений на карте (стекло)
+        List<Pin> GlassPins = new List<Pin>()
 		{
 			new Pin()
 			{
@@ -150,7 +163,9 @@ namespace Recycler
 				Type = PinType.Place
 			}
 		};
-		List<Pin> BattariesPins = new List<Pin>()
+
+        //Список пинов для обозначений на карте (батарейки)
+        List<Pin> BattariesPins = new List<Pin>()
 		{
 			new Pin()
 			{
@@ -195,7 +210,9 @@ namespace Recycler
 				Type = PinType.Place
 			},
 		};
-		List<Pin> ChemPins = new List<Pin>()
+
+        //Список пинов для обозначений на карте (химия)
+        List<Pin> ChemPins = new List<Pin>()
 		{
 			new Pin()
 			{
@@ -219,7 +236,9 @@ namespace Recycler
 				Type = PinType.Place
 			},
 		};
-		List<Pin> PharmaPins = new List<Pin>()
+
+        //Список пинов для обозначений на карте (фарма)
+        List<Pin> PharmaPins = new List<Pin>()
 		{
 			new Pin()
 			{
@@ -236,7 +255,9 @@ namespace Recycler
 				Type = PinType.Place
 			},
 		};
-		List<Pin> ElectroPins = new List<Pin>()
+
+        //Список пинов для обозначений на карте (электронные)
+        List<Pin> ElectroPins = new List<Pin>()
 		{
 			new Pin()
 			{
@@ -260,7 +281,9 @@ namespace Recycler
 				Type = PinType.Place
 			},
 		};
-		List<Pin> FoodPins = new List<Pin>()
+
+        //Список пинов для обозначений на карте (органические)
+        List<Pin> FoodPins = new List<Pin>()
 		{
 			new Pin()
 			{
@@ -291,7 +314,9 @@ namespace Recycler
 				Type = PinType.Place
 			},
 		};
-		List<Pin> GardenPins = new List<Pin>()
+
+        //Список пинов для обозначений на карте (садовые)
+        List<Pin> GardenPins = new List<Pin>()
 		{
 			new Pin()
 			{
@@ -308,7 +333,9 @@ namespace Recycler
 				Type = PinType.Place
 			},
 		};
-		List<Pin> AnimalPins = new List<Pin>()
+
+        //Список пинов для обозначений на карте (животные)
+        List<Pin> AnimalPins = new List<Pin>()
 		{
 			new Pin()
 			{
@@ -325,8 +352,10 @@ namespace Recycler
 				Type = PinType.Place
 			},
 		};
-		/*
-		 List<Pin> Pins = new List<Pin>()
+
+        //Шаблон
+
+        /*List<Pin> Pins = new List<Pin>()
 		{
 			new Pin()
 			{
@@ -335,11 +364,12 @@ namespace Recycler
 				Position = new Position(57.987635, 56.240165), //Координаты
 				Type = PinType.Place
 			},
-	};
-		*/
-		public Map()
+		};*/
+
+
+        public Map()
 		{
-			InitializeComponent();
+			InitializeComponent();  //Инициализация карты
 
 			//var map = new Xamarin.Forms.Maps.Map(new MapSpan(new Position(58.010455, 56.229443), 58.010455, 56.229443));
 
@@ -535,62 +565,62 @@ namespace Recycler
 		}
 
        
-        private void bt_Clicked(object sender, EventArgs e)
+        private void WasteTypeMapClicked(object sender, EventArgs e)
 		{
 			if (sender is Button)
 			{
-				Button bt = sender as Button;
-				if (bt == bt_animal)
+				Button button = sender as Button;
+				if (button == animal)
 				{
                     Toggle(MapMode.Animal);
                     wasteLabel.Text = "Пункты приёма животных отходов";
 				}
-				else if (bt == bt_battaries)
+				else if (button == battaries)
                 {
                     Toggle(MapMode.Battaries);
                     wasteLabel.Text = "Пункты приёма батареек";
                 } 
-				else if (bt == bt_chem)
+				else if (button == chem)
                 {
                     Toggle(MapMode.Chem);
                     wasteLabel.Text = "Пункты приёма химических отходов";
                 }
-				else if (bt == bt_electro)
+				else if (button == electro)
 				{
                     Toggle(MapMode.Electro);
                     wasteLabel.Text = "Пункты приёма электронных отходов";
                 }
-				else if (bt == bt_garden)
+				else if (button == garden)
 				{
                     Toggle(MapMode.Garden);
                     wasteLabel.Text = "Пункты приёма садовых отходов";
                 }
-				else if (bt == bt_glass)
+				else if (button == glass)
 				{
                     Toggle(MapMode.Glass);
                     wasteLabel.Text = "Пункты приёма стекла";
                 }
-				else if (bt == bt_metal)
+				else if (button == metal)
 				{
                     Toggle(MapMode.Metal);
                     wasteLabel.Text = "Пункты приёма металла";
                 }
-				else if (bt == bt_organic)
+				else if (button == organic)
 				{
                     Toggle(MapMode.Food);
                     wasteLabel.Text = "Пункты приёма пищевых отходов";
                 }
-				else if (bt == bt_paper)
+				else if (button == paper)
 				{
                     Toggle(MapMode.Paper);
                     wasteLabel.Text = "Пункты приёма бумаги";
                 }
-				else if (bt == bt_pharma)
+				else if (button == pharma)
 				{
                     Toggle(MapMode.Pharma);
                     wasteLabel.Text = "Пункты приёма фарм отходов";
                 }
-				else if (bt == bt_plastic)
+				else if (button == plastic)
 				{
                     Toggle(MapMode.Plastic);
                     wasteLabel.Text = "Пункты приёма пластика";
@@ -598,16 +628,29 @@ namespace Recycler
             }
 		}
 
-		private async void bt_bottom_home_Clicked(object sender, EventArgs e)
+
+        /// <summary>
+        /// Возврат на главную страницу с текущей
+        /// </summary>
+        private async void backHomeClicked(object sender, EventArgs e)
 		{
 			await Navigation.PopToRootAsync();
         }
 
-		private async void bt_back_Clicked(object sender, EventArgs e)
+
+        /// <summary>
+        /// Назад - возвращение на предыдущую страницу
+        /// </summary>
+        private async void backClicked(object sender, EventArgs e)
 		{
 			await Navigation.PopAsync();
 		}
-		private async void bt_user_guide_Clicked(object sender, EventArgs e)
+
+
+        /// <summary>
+        /// Открытие файла с руководством пользователя
+        /// </summary>
+        private async void userGuideClicked(object sender, EventArgs e)
 		{
 			await Launcher.OpenAsync(new OpenFileRequest() { File = new ReadOnlyFile(App.Path) });
 		}

@@ -4,67 +4,79 @@ namespace Recycler
 {
 	internal class PageGenerator : ContentPage
 	{
+		/// <summary>
+		/// Перечисление возможных кнопок
+		/// </summary>
 		public enum Type
 		{
-			Recyclable,
-			Hazardous,
-			Organic,
+			//Меню "Виды отходов"
+			Recyclable, //перерабатываемые
+			Hazardous,  //опасные
+			Organic,    //органические
 
-			Paper,
-			Glass,
-			Plastic,
-			Metal,
+			//Перерабатываемые отходы
+			Paper,   //бумага 
+			Glass,   //стекло
+			Plastic, //пластик
+			Metal,   //металл
 
-			Battaries,
-			Chemistry,
-			Pharma,
-			Electro,
+			//Опасные отходы
+			Battaries, //батарейки
+			Chemistry, //химические
+			Pharma,    //фарма
+			Electro,   //электрические
 
-			Food,
-			Garden,
-			Animal,
+			//Органические отходы
+			Food,   //пищевые
+			Garden, //садовые
+			Animal, //животные
 
-			Composting,
-			Disposer
+			//Доп. кнопки
+			Composting, //компостирование
+			Disposer    //диспоузер
 		}
 		public ContentPage GeneratePage(Type type, INavigation el)
 		{
-			Button bt_composting = new Button() { Text = "Узнать больше" }; bt_composting.Clicked += (a, e) => el.PushAsync(GeneratePage(Type.Composting, el));
-			Button bt_disposer = new Button() { Text = "Узнать больше" }; bt_disposer.Clicked += (a, e) => el.PushAsync(GeneratePage(Type.Disposer, el));
-			Button[] bts;
+			Button composting = new Button() { Text = "Узнать больше" };
+            composting.Clicked += (a, e) => el.PushAsync(GeneratePage(Type.Composting, el));
+			
+			Button disposer = new Button() { Text = "Узнать больше" }; 
+			disposer.Clicked += (a, e) => el.PushAsync(GeneratePage(Type.Disposer, el));
+
+			Button[] buttons;
 			switch (type)
 			{
 				case Type.Recyclable:
 					{
-						Button bt_paper, bt_glass, bt_plastic, bt_metal;
-						bt_paper = new Button() { Text = "Бумага" }; bt_paper.Clicked += (e, a) => el.PushAsync(GeneratePage(Type.Paper,el));
-						bt_glass = new Button() { Text = "Стекло" }; bt_glass.Clicked += (e, a) => el.PushAsync(GeneratePage(Type.Glass, el));
-						bt_plastic = new Button() { Text = "Пластик" }; bt_plastic.Clicked += (e, a) => el.PushAsync(GeneratePage(Type.Plastic, el));
-						bt_metal = new Button() { Text = "Металл" }; bt_metal.Clicked += (e, a) => el.PushAsync(GeneratePage(Type.Metal, el));
-						bts = new Button[] { bt_glass, bt_paper, bt_plastic, bt_metal };
+						Button buttonPaper, buttonGlass, buttonPlastic, buttonMetal;
+                        buttonPaper = new Button() { Text = "Бумага" }; buttonPaper.Clicked += (e, a) => el.PushAsync(GeneratePage(Type.Paper,el));
+						buttonGlass = new Button() { Text = "Стекло" }; buttonGlass.Clicked += (e, a) => el.PushAsync(GeneratePage(Type.Glass, el));
+                        buttonPlastic = new Button() { Text = "Пластик" }; buttonPlastic.Clicked += (e, a) => el.PushAsync(GeneratePage(Type.Plastic, el));
+                        buttonMetal = new Button() { Text = "Металл" }; buttonMetal.Clicked += (e, a) => el.PushAsync(GeneratePage(Type.Metal, el));
+                        buttons = new Button[] { buttonGlass, buttonPaper, buttonPlastic, buttonMetal };
 
-						return new SelectionPage(bts);
+						return new SelectionPage(buttons);
 					}
 				case Type.Hazardous:
 					{
-						Button bt_battaries, bt_chemistry, bt_pharma, bt_electro;
-						bt_battaries = new Button() { Text = "Батарейки и аккумуляторы" }; bt_battaries.Clicked += (e, a) => { el.PushAsync(GeneratePage(Type.Battaries, el)); };
-						bt_chemistry = new Button() { Text = "Химические вещества" }; bt_chemistry.Clicked += (e, a) => { el.PushAsync(GeneratePage(Type.Chemistry, el)); };
-						bt_pharma = new Button() { Text = "Фармацевтические препараты" }; bt_pharma.Clicked += (e, a) => { el.PushAsync(GeneratePage(Type.Pharma, el)); };
-						bt_electro = new Button() { Text = "Электронные отходы" }; bt_electro.Clicked += (e, a) => { el.PushAsync(GeneratePage(Type.Electro, el)); };
+						Button buttonBattaries, buttonChemistry, buttonPharma, buttonElectro;
+                        buttonBattaries = new Button() { Text = "Батарейки и аккумуляторы" }; buttonBattaries.Clicked += (e, a) => { el.PushAsync(GeneratePage(Type.Battaries, el)); };
+                        buttonChemistry = new Button() { Text = "Химические вещества" }; buttonChemistry.Clicked += (e, a) => { el.PushAsync(GeneratePage(Type.Chemistry, el)); };
+                        buttonPharma = new Button() { Text = "Фармацевтические препараты" }; buttonPharma.Clicked += (e, a) => { el.PushAsync(GeneratePage(Type.Pharma, el)); };
+						buttonElectro = new Button() { Text = "Электронные отходы" }; buttonElectro.Clicked += (e, a) => { el.PushAsync(GeneratePage(Type.Electro, el)); };
 
-						bts = new Button[] { bt_battaries, bt_chemistry, bt_pharma, bt_electro };
-						return new SelectionPage(bts);
+                        buttons = new Button[] { buttonBattaries, buttonChemistry, buttonPharma, buttonElectro };
+						return new SelectionPage(buttons);
 					}
 				case Type.Organic:
 					{
-						Button bt_food, bt_garden, bt_animal;
-						bt_food = new Button() { Text = "Пищевые отходы" }; bt_food.Clicked += (a, e) => { el.PushAsync(GeneratePage(Type.Food, el)); };
-						bt_garden = new Button() { Text = "Садовые отходы" }; bt_garden.Clicked += (a, e) => { el.PushAsync(GeneratePage(Type.Garden, el)); };
-						bt_animal = new Button() { Text = "Животные отходы" }; bt_animal.Clicked += (a, e) => { el.PushAsync(GeneratePage(Type.Animal, el)); };
+						Button buttonFood, buttonGarden, buttonAnimal;
+                        buttonFood = new Button() { Text = "Пищевые отходы" }; buttonFood.Clicked += (a, e) => { el.PushAsync(GeneratePage(Type.Food, el)); };
+                        buttonGarden = new Button() { Text = "Садовые отходы" }; buttonGarden.Clicked += (a, e) => { el.PushAsync(GeneratePage(Type.Garden, el)); };
+                        buttonAnimal = new Button() { Text = "Животные отходы" }; buttonAnimal.Clicked += (a, e) => { el.PushAsync(GeneratePage(Type.Animal, el)); };
 
-						bts = new Button[] { bt_food, bt_garden, bt_animal };
-						return new SelectionPage(bts);
+                        buttons = new Button[] { buttonFood, buttonGarden, buttonAnimal };
+						return new SelectionPage(buttons);
 					}
 
 				case Type.Paper:
@@ -89,7 +101,7 @@ namespace Recycler
 						"Чеки и бумага для факсов",
 						"Фотобумага",
 						"Обои",
-						"Рисунки из мелков, растопленных утюгом; рисунки из пластилина; картины масляными красками"
+						"Рисунки из мелков, растопленных утюгом, рисунки из пластилина, картины масляными красками"
 					},Article.HorizontalOptions.Left),
 
 					new Article("Как подготовить к переработке?", new string[]
@@ -152,11 +164,11 @@ namespace Recycler
 							},Article.HorizontalOptions.Left),
 							new Article("Не пригодно к переработке", new string[]
 							{
-								"всё, что относится к вооруженным силам",
-								"исправный транспорт",
-								"неразрезанные баллоны и баки",
-								"железнодорожное оборудование",
-								"электрическое оборудование"
+								"Всё, что относится к вооруженным силам",
+								"Исправный транспорт",
+								"Неразрезанные баллоны и баки",
+								"Железнодорожное оборудование",
+								"Электрическое оборудование"
 							},Article.HorizontalOptions.Right)
 						};
 						return new InfoPage("Металл", metal, Map.MapMode.Metal);
@@ -212,11 +224,11 @@ namespace Recycler
 							},Article.HorizontalOptions.Left),
 							new Article("Какие препараты можно сдавать?",new string[]
 							{
-								"просроченные средства",
-								"препараты без идентификации",
-								"одиночные таблетки без блистера",
-								"слипшиеся капсулы",
-								"внешний вид изменён"
+								"Просроченные средства",
+								"Препараты без идентификации",
+								"Одиночные таблетки без блистера",
+								"Слипшиеся капсулы",
+								"Внешний вид изменён"
 							},Article.HorizontalOptions.Right)
 						};
 						return new InfoPage("Фармацевтические препараты", pharma, Map.MapMode.Pharma);
@@ -253,11 +265,11 @@ namespace Recycler
 							new Article("Как перерабатывать самостоятельно?", new string[]
 							{
 								"Компостирование"
-							},Article.HorizontalOptions.Right, bt_composting),
+							},Article.HorizontalOptions.Right, composting),
 							new Article("",new string[]
 							{
 								"Диспоузер"
-							},Article.HorizontalOptions.Right,bt_disposer)
+							},Article.HorizontalOptions.Right,disposer)
 						};
 						return new InfoPage("Пищевые отходы", food, Map.MapMode.Food);
 				}
@@ -274,7 +286,7 @@ namespace Recycler
 							new Article("Как перерабатывать самостоятельно?", new string[]
 							{
 								"Компостирование",
-							},Article.HorizontalOptions.Left, bt_composting)
+							},Article.HorizontalOptions.Left, composting)
 						};
 						return new InfoPage("Садовые отходы", garden, Map.MapMode.Garden);
 				}
@@ -289,7 +301,7 @@ namespace Recycler
 							new Article("Как перерабатывать самостоятельно?", new string[]
 							{
 								"Компостирование"
-							},Article.HorizontalOptions.Right, bt_composting)
+							},Article.HorizontalOptions.Right, composting)
 						};
 						return new InfoPage("Животные отходы", animal, Map.MapMode.Animal);
 					}

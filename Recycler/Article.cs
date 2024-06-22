@@ -11,7 +11,7 @@ namespace Recycler
         public string[] Elements { get; }
         public enum HorizontalOptions { Left, Right }
         public HorizontalOptions Options { get; }
-        public Button button { get; set; }
+        public Button Button { get; set; }
 
         public Article(string header, string[] elements, HorizontalOptions options)
         {
@@ -19,14 +19,14 @@ namespace Recycler
             Elements = elements; 
             Options = options;
         }
-		public Article(string header, string[] elements, HorizontalOptions options, Button bt)
+		public Article(string header, string[] elements, HorizontalOptions options, Button button)
 		{
 			Header = header; 
             Elements = elements;
             Options = options;
-            button = bt;
-            if (options == HorizontalOptions.Left) bt.HorizontalOptions = LayoutOptions.Start;
-            else if (options == HorizontalOptions.Right) bt.HorizontalOptions = LayoutOptions.End;
+            Button = button;
+            if (options == HorizontalOptions.Left) button.HorizontalOptions = LayoutOptions.Start;
+            else if (options == HorizontalOptions.Right) button.HorizontalOptions = LayoutOptions.End;
 		}
 	}
 }

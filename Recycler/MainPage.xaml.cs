@@ -14,36 +14,60 @@ namespace Recycler
 	{
 		public MainPage()
 		{
-			InitializeComponent();
+			InitializeComponent(); //Инициализация страницы
 			Xamarin.Forms.NavigationPage.SetTitleIconImageSource(this, ImageSource.FromResource("recycle_logo.png"));
 		}
 
-		private async void bt_wasteType_Clicked(object sender, EventArgs e)
+
+		/// <summary>
+		/// Переход на меню "Виды отходов"
+		/// </summary>
+		private async void WasteTypeClicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new WasteTypes());
 		}
 
-		private async void bt_map_Clicked(object sender, EventArgs e)
-		{
-			await Navigation.PushAsync(new Map());
-		}
-
-		private async void bt_codes_Clicked(object sender, EventArgs e)
+		
+		/// <summary>
+		/// Переход на меню "Коды переработки"
+		/// </summary>
+		private async void CodesClicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new Codes());
 		}
 
-		private void bt_bottom_home_Clicked(object sender, EventArgs e)
+
+		/// <summary>
+		/// Переход на карту с главной страницы
+		/// </summary>
+        private async void MainMapClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Map());
+        }
+
+
+        /// <summary>
+        /// Пустой метод перехода на главную страницу, так как уже на главной
+        /// </summary>
+        private void BackHomeClicked(object sender, EventArgs e)
 		{
 
         }
 
-		private async void bt_bottom_map_Clicked(object sender, EventArgs e)
+
+        /// <summary>
+        /// Переход на страницу с картой с текущей страницы
+        /// </summary>
+        private async void MapClicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new Map());
         }
 
-		private async void bt_user_guide_Clicked(object sender, EventArgs e)
+
+        /// <summary>
+        /// Открытие файла с руководством пользователя
+        /// </summary>
+        private async void UserGuideClicked(object sender, EventArgs e)
 		{
 			await Launcher.OpenAsync(new OpenFileRequest() { File = new ReadOnlyFile(App.Path) });
 		}

@@ -4,25 +4,35 @@
              x:Class="Recycler.InfoPage"
              xmlns:local="clr-namespace:Recycler"
              NavigationPage.HasNavigationBar="False"
-             Style="{StaticResource bg}">
+             Style="{StaticResource pageBack}">
     <ContentPage.Content>
         <StackLayout>
+
+            <!--Верхнее меню приложения-->
             <Frame Style="{StaticResource head}">
                 <Grid>
                     <Grid.RowDefinitions>
+                        <!--Задание высоты полоски-->
                         <RowDefinition Height="52"></RowDefinition>
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
+                        <!--Разделение полосы на 4 части-->
                         <ColumnDefinition Width="64"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="64"></ColumnDefinition>
 
                     </Grid.ColumnDefinitions>
-                    <Label Style="{StaticResource l_app_name}" Grid.ColumnSpan="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{x:Static local:App.AppName}" Grid.Column="1" Grid.Row="0" FontSize="20"></Label>
-                    <ImageButton Clicked="bt_back_Clicked" BackgroundColor="Transparent" Source="bt_back" Grid.Column="0" Grid.Row="0"></ImageButton>
-                    <ImageButton Source = "link" BackgroundColor="Transparent" Clicked="bt_user_guide_Clicked" x:Name="bt_user_guide" Grid.Column="3" Grid.Row="0"></ImageButton>
+                    
+                    <!--Название приложения Тест взят из файла App, где он задан для всех страниц-->
+                    <Label Style="{StaticResource appName}" Grid.ColumnSpan="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{x:Static local:App.AppName}" Grid.Column="1" Grid.Row="0" FontSize="20"></Label>
+
+                    <!--Кнопка назад-->
+                    <ImageButton Clicked="BackClicked" BackgroundColor="Transparent" Source="bt_back" Grid.Column="0" Grid.Row="0"></ImageButton>
+
+                    <!--Кнопка для открытия справочной документаци-->
+                    <ImageButton Source = "link" BackgroundColor="Transparent" Clicked="UserGuideClicked" x:Name="userGuide" Grid.Column="3" Grid.Row="0"></ImageButton>
                 </Grid>
             </Frame>
             <Grid>
@@ -31,13 +41,29 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
             </Grid>
-            <Label Style="{StaticResource l_header}" x:Name="MainHeader" Text="Текст"></Label>
+
+            <!--Основной заголовок (зелёный)-->
+            <Label Style="{StaticResource header}" x:Name="MainHeader" Text="Текст"></Label>
+            
+            <!--Информация-->
             <ScrollView>
                 <StackLayout Padding="0,0,0,0" x:Name="Articles"></StackLayout>
             </ScrollView>
-            <StackLayout VerticalOptions="EndAndExpand" Orientation="Horizontal">
-                <ImageButton HorizontalOptions="Start" Style="{StaticResource bt_bottom}" x:Name="bt_bottom_home" Clicked="bt_bottom_home_Clicked" Source="bt_bottom_home"></ImageButton>
-                <ImageButton HorizontalOptions="End" Style="{StaticResource bt_bottom}" x:Name="bt_bottom_map" Clicked="bt_bottom_map_Clicked" Source="bt_bottom_map"></ImageButton>
+
+            <!--Статические нижние элементы-->
+            <StackLayout VerticalOptions="EndAndExpand" Orientation="Horizontal" BackgroundColor="#F6FDF3">
+                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+
+                    <!--Кнопка перехода на главный экран с любой страницы-->
+                    <ImageButton HorizontalOptions="Start" Style="{StaticResource staticBottom}" x:Name="backHome" Clicked="BackHomeClicked" Source="bt_bottom_home"></ImageButton>
+                </StackLayout>
+                
+                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+
+                    <!--Кнопка перехода на карту с любой страницы-->
+                    <ImageButton HorizontalOptions="End" Style="{StaticResource staticBottom}" x:Name="buttonMap" Clicked="MapClicked" Source="bt_bottom_map"></ImageButton>
+                
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

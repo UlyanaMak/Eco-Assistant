@@ -4,25 +4,35 @@
 			 x:Class="Recycler.App"
              xmlns:local ="clr-namespace:Recycler">
 	<Application.Resources>
-		<ResourceDictionary>
-            
-            <LinearGradientBrush x:Key="bruh" StartPoint="0,0" EndPoint="1,1">
+
+        <!--Стили различных элементов приложения-->
+        <ResourceDictionary>
+
+            <!--Градиент на основных кнопках-->
+            <LinearGradientBrush x:Key="gradient" StartPoint="0,0" EndPoint="1,1">
                 <GradientStop Offset="0.1" Color="#A8DF8E"/>
                 <GradientStop Offset="0.5" Color="#DBEED2"/>
                 <GradientStop Offset="1" Color="#A8DF8E"/>
             </LinearGradientBrush>
+
+            <!--Верхняя часть экрана (навигация)-->
             <Style x:Key="head" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="White"></Setter>
                 <Setter Property="Padding" Value="10"></Setter>
             </Style>
-            <Style x:Key="l_header" TargetType="Label">
+
+            <!--Тематические заголовки на страницах-->
+            <Style x:Key="header" TargetType="Label">
                 <Setter Property="TextColor" Value="#A8DF8E"></Setter>
                 <Setter Property="FontFamily" Value="Inter"></Setter>
                 <Setter Property="FontAttributes" Value="Bold"></Setter>
                 <Setter Property="FontSize" Value="35"></Setter>
-                <Setter Property="Margin" Value="40,30,0,0"></Setter>
+                <Setter Property="Margin" Value="0,10,0,10"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
             </Style>
-            <Style x:Key="l_app_name" TargetType="Label">
+
+            <!--Название приложения в верхней части-->
+            <Style x:Key="appName" TargetType="Label">
                 <Setter Property="TextColor" Value="Black"></Setter>
                 <Setter Property="FontSize" Value="15"></Setter>
                 <Setter Property="FontAttributes" Value="None"></Setter>
@@ -32,15 +42,21 @@
                 <Setter Property="Text" Value="{x:Static local:App.AppName}"></Setter>
                 <Setter Property="FontSize" Value="20"/>
             </Style>
+
+            <!--Основные (большие) кнопки-->
             <Style TargetType="Button">
-                <Setter Property="Background" Value="{StaticResource bruh}"></Setter>
+                <Setter Property="Background" Value="{StaticResource gradient}"></Setter>
                 <Setter Property="HeightRequest" Value="167"></Setter>
                 <Setter Property="Margin" Value="0,20,0,0"></Setter>
             </Style>
-            <Style x:Key="bt_code_selected" TargetType="Button">
+            
+            
+            <Style x:Key="codeSelect" TargetType="Button">
                 <Setter Property="Opacity" Value="0.5"></Setter>
             </Style>
-            <Style x:Key="bt_map_top" TargetType="Button">
+            
+            <!--Стиль для кнопок выбора типа отходов на карте-->
+            <Style x:Key="mapTopChoose" TargetType="Button">
                 <Setter Property="Background" Value="#F5EFE6"></Setter>
                 <Setter Property="CornerRadius" Value="15"></Setter>
                 <Setter Property="Font" Value="Inter"></Setter>
@@ -48,24 +64,33 @@
                 <Setter Property="Margin" Value="0,15,0,0"></Setter>
                 <Setter Property="WidthRequest" Value="200"></Setter>
             </Style>
+            
+            <!--Стиль для заголовков текста на страницах-->
             <Style TargetType="Label">
                 <Setter Property="FontSize" Value="20"></Setter>
                 <Setter Property="FontAttributes" Value="Bold"></Setter>
                 <Setter Property="TextColor" Value="Black"></Setter>
-                <Setter Property="Margin" Value="30,0,30,20"></Setter>
+                <Setter Property="Margin" Value="20,0,20,10"></Setter>
             </Style>
-            <Style x:Key="text_base" TargetType="Label">
+            
+            <!--Стиль для текста на странице-->
+            <Style x:Key="textBase" TargetType="Label">
                 <Setter Property="FontSize" Value="15"></Setter>
-                <Setter Property="Margin" Value="20,5,0,5"></Setter>
+                <Setter Property="Margin" Value="20,5,20,5"></Setter>
             </Style>
-            <Style x:Key="text_l" TargetType="Label" BasedOn="{StaticResource text_base}">
+
+            <!--Форма для текста слева на странице-->
+            <Style x:Key="textLeft" TargetType="Label" BasedOn="{StaticResource textBase}">
                 <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
             </Style>
-            <Style x:Key="text_r" TargetType="Label" BasedOn="{StaticResource text_base}">
+
+            <!--Форма для текста слева на странице-->
+            <Style x:Key="textRight" TargetType="Label" BasedOn="{StaticResource textBase}">
                 <Setter Property="HorizontalTextAlignment" Value="End"></Setter>
-                <Setter Property="Margin" Value="0,0,20,0"></Setter>
             </Style>
-            <Style x:Key="bt_gotoMap" TargetType="Button">
+
+            <!--Кнопка перехода к карте с информационной страницы-->
+            <Style x:Key="mapMainButton" TargetType="Button">
                 <Setter Property="Text" Value="Перейти к карте" ></Setter>
                 <Setter Property="FontSize" Value="20"></Setter>
                 <Setter Property="FontAttributes" Value="Bold"></Setter>
@@ -74,24 +99,30 @@
                 <Setter Property="Background" Value="#BFE3AE"></Setter>
                 <Setter Property="CornerRadius" Value="15"></Setter>
             </Style>
-            <Style x:Key="bt_additional" TargetType="Button">
+            
+            <!--Узнать больше-->
+            <Style x:Key="knowMore" TargetType="Button">
                 <Setter Property="Background" Value="#BFE3AE"></Setter>
                 <Setter Property="CornerRadius" Value="15"></Setter>
                 <Setter Property="HeightRequest" Value="39"></Setter>
+                <Setter Property="Margin" Value="20,0,20,0"></Setter>
             </Style>
-            <Style x:Key="bt_selection" TargetType="Button">
+            
+            <!--Кнопки окончательного выбра типа мусора "бумага", "стекло" и т.д.-->
+            <Style x:Key="wasteType" TargetType="Button">
                 <Setter Property="CornerRadius" Value="15"></Setter>
                 <Setter Property="HeightRequest" Value="66"></Setter>
             </Style>
-            <Style TargetType="Button" x:Key="bt_back">
-                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
-            </Style>
-            <Style TargetType="Button" x:Key="bt_bottom">
+
+            <!--Нижняя область статических кнопок-->
+            <Style TargetType="Button" x:Key="staticBottom">
                 <Setter Property="WidthRequest" Value="180"></Setter>
                 <Setter Property="BackgroundColor" Value="#F6FDF3"></Setter>
                 <Setter Property="HeightRequest" Value="52"></Setter>
             </Style>
-            <Style x:Key="bg" TargetType="ContentPage">
+            
+            <!--Фон страниц-->
+            <Style x:Key="pageBack" TargetType="ContentPage">
                 <Setter Property="BackgroundImageSource" Value="bg.png"></Setter>
             </Style>
         </ResourceDictionary>

@@ -15,70 +15,91 @@ namespace Recycler
 		Map.MapMode mode;
 		public InfoPage(string MainHeader, Article[] articles, Map.MapMode mapMode)
 		{
-			InitializeComponent ();
+			InitializeComponent ();   //Инициализация страницы
 			mode = mapMode;
-			this.MainHeader.Text = MainHeader;
-			foreach (Article article in articles)
+			this.MainHeader.Text = MainHeader;     //Основной заголовок
+			foreach (Article article in articles)  //Вывод информации из массива строк
 			{
-				Label header = new Label()
+				Label header = new Label() //Присвоение первому элементу массива типа Label
 				{
-					Text = article.Header
+					Text = article.Header //Поле Text - заголовок
 				};
-				foreach (string s in article.Elements)
+				foreach (string element in article.Elements) //Вывод информационных элементов
 				{
-					Label l = new Label() { Text = s};
-					if(article.Options == Article.HorizontalOptions.Left)
+					Label information = new Label() { Text = element }; //Обычный текст
+					if(article.Options == Article.HorizontalOptions.Left) //Если горизонтально слева
 					{
-						l.Style = Application.Current.Resources["text_l"] as Style;
-						header.HorizontalTextAlignment = TextAlignment.Start;
+                        information.Style = Application.Current.Resources["textLeft"] as Style; //то присвоение стиля текста слева textLeft
+                        header.HorizontalTextAlignment = TextAlignment.Start;         //выравнивание по левому краю
 					}
-					else if(article.Options == Article.HorizontalOptions.Right)
-					{
-						l.Style = Application.Current.Resources["text_r"] as Style;
-						header.HorizontalTextAlignment = TextAlignment.End;
-					}
+					else if(article.Options == Article.HorizontalOptions.Right)       //Если горизонтально справа
+                    {
+                        information.Style = Application.Current.Resources["textRight"] as Style;//то присвоение стиля текста справа textRight
+                        header.HorizontalTextAlignment = TextAlignment.End;           //выравнивание по правому краю
+                    }
 					
 					Articles.Children.Add(header);
-					Articles.Children.Add(l);
-					if (article.button != null)
+					Articles.Children.Add(information);
+
+					if (article.Button != null) //Если есть доп. кнопка
 					{
-						article.button.Style = Application.Current.Resources["bt_additional"] as Style;
-						Articles.Children.Add(article.button);
-					}
+						article.Button.Style = Application.Current.Resources["knowMore"] as Style; //то ей присваивается соответствующий стиль
+						Articles.Children.Add(article.Button); //и выводится
+                    }
 				}
 			}
-			Button bt_map = new Button()
-			{
-				Style = Application.Current.Resources["bt_gotoMap"] as Style
+
+			Button buttonGoMap = new Button() //Кнопка перехода к карте с информационной страницы
+            {
+				Style = Application.Current.Resources["mapMainButton"] as Style //Присвоение соответствующего созданного стиля
 			};
-			bt_map.Clicked += (e, a) => { Navigation.PushAsync(new Map(mapMode)); };
-			if (mapMode != Map.MapMode.None) 
+
+            buttonGoMap.Clicked += (e, a) => { Navigation.PushAsync(new Map(mapMode)); }; //Событие-переход на страницу с картой
+
+			if (mapMode != Map.MapMode.None) //Если кнопка была нажата (не null)
 			{ 
 				Articles.Children.Add(new Label() { Style = new Style(typeof(Label)) { Setters = { new Setter() { Property = Label.MarginProperty, Value = new Thickness(0, 10, 0, 0) } } }, Text = "Куда сдавать в городе Пермь?", HorizontalTextAlignment = TextAlignment.Center }); 
-				Articles.Children.Add(bt_map); 
+				Articles.Children.Add(buttonGoMap); 
 				
 			}
 		}
 		public InfoPage()
 		{
-			InitializeComponent();
+			InitializeComponent(); //Инициализация страницы вцелом
 		}
 
-		private async void bt_back_Clicked(object sender, EventArgs e)
+
+        /// <summary>
+        /// Назад - возвращение на предыдущую страницу
+        /// </summary>
+        private async void BackClicked(object sender, EventArgs e)
 		{
 			await Navigation.PopAsync();
 		}
 
-		private async void bt_bottom_home_Clicked(object sender, EventArgs e)
+
+        /// <summary>
+        /// Возврат на главную страницу с текущей
+        /// </summary>
+        private async void BackHomeClicked(object sender, EventArgs e)
 		{
 			await Navigation.PopToRootAsync();
         }
 
-		private async void bt_bottom_map_Clicked(object sender, EventArgs e)
+
+        /// <summary>
+        /// Переход на страницу с картой с текущей страницы
+        /// </summary>
+        private async void MapClicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new Map(mode));
         }
-		private async void bt_user_guide_Clicked(object sender, EventArgs e)
+
+
+        /// <summary>
+        /// Открытие файла с руководством пользователя
+        /// </summary>
+        private async void UserGuideClicked(object sender, EventArgs e)
 		{
 			await Launcher.OpenAsync(new OpenFileRequest() { File = new ReadOnlyFile(App.Path) });
 		}

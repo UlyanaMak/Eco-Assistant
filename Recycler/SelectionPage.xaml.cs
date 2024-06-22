@@ -12,31 +12,49 @@ namespace Recycler
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SelectionPage : ContentPage
 	{
-		public SelectionPage(Button[]bts)
+		public SelectionPage(Button[]buttons)
 		{
 			InitializeComponent();
-			foreach(Button bt in bts) 
+			//Вывод кнопок выбора типа мусора
+			foreach(Button button in buttons) 
 			{
-				bt.Style = Application.Current.Resources["bt_selection"] as Style;
-				Content.Children.Add(bt);
+                button.Style = Application.Current.Resources["wasteType"] as Style; //Присвоение каждой кнопки стиля wasteType
+                Content.Children.Add(button);
 			}
 		}
 
-		private async void bt_back_Clicked(object sender, EventArgs e)
+
+        /// <summary>
+        /// Назад - возвращение на предыдущую страницу
+        /// </summary>
+        private async void BackClicked(object sender, EventArgs e)
 		{
 			await Navigation.PopAsync();
 		}
 
-		private async void bt_bottom_home_Clicked(object sender, EventArgs e)
+
+        /// <summary>
+        /// Возврат на главную страницу с текущей
+        /// </summary>
+        private async void BackHomeClicked(object sender, EventArgs e)
 		{
 			await Navigation.PopToRootAsync();
         }
 
-		private async void bt_bottom_map_Clicked(object sender, EventArgs e)
+
+        /// <summary>
+        /// Переход на страницу с картой с текущей страницы
+        /// </summary>
+        private async void MapClicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new Map());
         }
-		private async void bt_user_guide_Clicked(object sender, EventArgs e)
+
+
+        /// <summary>
+        /// Открытие файла с руководством пользователя
+        /// </summary>
+        private async void UserGuideClicked(object sender, EventArgs e)
 		{
 			await Launcher.OpenAsync(new OpenFileRequest() { File = new ReadOnlyFile(App.Path)});
 		}
