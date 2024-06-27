@@ -111,6 +111,7 @@
             <!--Кнопки окончательного выбра типа мусора "бумага", "стекло" и т.д.-->
             <Style x:Key="wasteType" TargetType="Button">
                 <Setter Property="CornerRadius" Value="15"></Setter>
+                <Setter Property="FontSize" Value="17"></Setter>
                 <Setter Property="HeightRequest" Value="66"></Setter>
             </Style>
 

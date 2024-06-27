@@ -12,12 +12,14 @@ namespace Recycler
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SelectionPage : ContentPage
 	{
-		public SelectionPage(Button[]buttons)
+		public SelectionPage(Button[]buttons, string lastWasteType)
 		{
 			InitializeComponent();
 			//Вывод кнопок выбора типа мусора
 			foreach(Button button in buttons) 
 			{
+				//Заголовок
+                this.wasteTypes.Text = lastWasteType;
                 button.Style = Application.Current.Resources["wasteType"] as Style; //Присвоение каждой кнопки стиля wasteType
                 Content.Children.Add(button);
 			}

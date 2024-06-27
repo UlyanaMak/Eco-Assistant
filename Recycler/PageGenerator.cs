@@ -48,35 +48,39 @@ namespace Recycler
 			{
 				case Type.Recyclable:
 					{
-						Button buttonPaper, buttonGlass, buttonPlastic, buttonMetal;
+						string wasteType = "Перерабатываемые отходы";
+
+                        Button buttonPaper, buttonGlass, buttonPlastic, buttonMetal;
                         buttonPaper = new Button() { Text = "Бумага" }; buttonPaper.Clicked += (e, a) => el.PushAsync(GeneratePage(Type.Paper,el));
 						buttonGlass = new Button() { Text = "Стекло" }; buttonGlass.Clicked += (e, a) => el.PushAsync(GeneratePage(Type.Glass, el));
                         buttonPlastic = new Button() { Text = "Пластик" }; buttonPlastic.Clicked += (e, a) => el.PushAsync(GeneratePage(Type.Plastic, el));
                         buttonMetal = new Button() { Text = "Металл" }; buttonMetal.Clicked += (e, a) => el.PushAsync(GeneratePage(Type.Metal, el));
                         buttons = new Button[] { buttonGlass, buttonPaper, buttonPlastic, buttonMetal };
 
-						return new SelectionPage(buttons);
+						return new SelectionPage(buttons, wasteType);
 					}
 				case Type.Hazardous:
 					{
-						Button buttonBattaries, buttonChemistry, buttonPharma, buttonElectro;
+                        string wasteType = "Опасные отходы";
+                        Button buttonBattaries, buttonChemistry, buttonPharma, buttonElectro;
                         buttonBattaries = new Button() { Text = "Батарейки и аккумуляторы" }; buttonBattaries.Clicked += (e, a) => { el.PushAsync(GeneratePage(Type.Battaries, el)); };
                         buttonChemistry = new Button() { Text = "Химические вещества" }; buttonChemistry.Clicked += (e, a) => { el.PushAsync(GeneratePage(Type.Chemistry, el)); };
                         buttonPharma = new Button() { Text = "Фармацевтические препараты" }; buttonPharma.Clicked += (e, a) => { el.PushAsync(GeneratePage(Type.Pharma, el)); };
 						buttonElectro = new Button() { Text = "Электронные отходы" }; buttonElectro.Clicked += (e, a) => { el.PushAsync(GeneratePage(Type.Electro, el)); };
 
                         buttons = new Button[] { buttonBattaries, buttonChemistry, buttonPharma, buttonElectro };
-						return new SelectionPage(buttons);
+						return new SelectionPage(buttons, wasteType);
 					}
 				case Type.Organic:
 					{
-						Button buttonFood, buttonGarden, buttonAnimal;
+                        string wasteType = "Органические отходы";
+                        Button buttonFood, buttonGarden, buttonAnimal;
                         buttonFood = new Button() { Text = "Пищевые отходы" }; buttonFood.Clicked += (a, e) => { el.PushAsync(GeneratePage(Type.Food, el)); };
                         buttonGarden = new Button() { Text = "Садовые отходы" }; buttonGarden.Clicked += (a, e) => { el.PushAsync(GeneratePage(Type.Garden, el)); };
                         buttonAnimal = new Button() { Text = "Животные отходы" }; buttonAnimal.Clicked += (a, e) => { el.PushAsync(GeneratePage(Type.Animal, el)); };
 
                         buttons = new Button[] { buttonFood, buttonGarden, buttonAnimal };
-						return new SelectionPage(buttons);
+						return new SelectionPage(buttons, wasteType);
 					}
 
 				case Type.Paper:

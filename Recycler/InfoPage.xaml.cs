@@ -17,7 +17,7 @@ namespace Recycler
 		{
 			InitializeComponent ();   //Инициализация страницы
 			mode = mapMode;
-			this.MainHeader.Text = MainHeader;     //Основной заголовок
+			this.MainHeader.Text = MainHeader;     //Основной заголовок в Label
 			foreach (Article article in articles)  //Вывод информации из массива строк
 			{
 				Label header = new Label() //Присвоение первому элементу массива типа Label

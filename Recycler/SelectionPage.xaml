@@ -35,7 +35,10 @@
                     <ImageButton Source = "link" BackgroundColor="Transparent" Clicked="UserGuideClicked" x:Name="userGuide" Grid.Column="3" Grid.Row="0"></ImageButton>
                 </Grid>
             </Frame>
-            
+
+            <!--Заголовок страницы с последним выбором типов отходов-->
+            <Label x:Name ="wasteTypes" Text="" Style="{StaticResource header}"></Label>
+
             <ScrollView>
                 <!--Кнопки с последней выборкой-->
                 <StackLayout x:Name="Content"></StackLayout>

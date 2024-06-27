@@ -24,17 +24,27 @@ namespace Recycler.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            //По умолчанию
             base.OnCreate(savedInstanceState);
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);  //Инициализация бибилиотеки для кроссплатформенности
+            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);  //Инициализация платформы Xamarin
+            //По умолчанию
+
             Stream stream = Assets.Open("ecoassistant.pdf");
             
             List<byte> b = new List<byte>();
-            if (CheckSelfPermission(Manifest.Permission.ReadExternalStorage) != Permission.Granted || CheckSelfPermission(Manifest.Permission.WriteExternalStorage) != Permission.Granted)
-                RequestPermissions(new string[] { Manifest.Permission.ReadExternalStorage, Manifest.Permission.WriteExternalStorage },1);
+
+            if (CheckSelfPermission(Manifest.Permission.ReadExternalStorage) != Permission.Granted 
+                || CheckSelfPermission(Manifest.Permission.WriteExternalStorage) != Permission.Granted)
+            {
+                RequestPermissions(new string[] { Manifest.Permission.ReadExternalStorage, Manifest.Permission.WriteExternalStorage }, 1);
+            }
+                
             string path = Application.GetDir("data",0).AbsolutePath + "/info.pdf";
+            
             System.IO.File.Create(path);
-			using (BinaryReader r = new BinaryReader(stream))
+			
+            using (BinaryReader r = new BinaryReader(stream))
             {
                 while(true)
                 {
@@ -51,6 +61,10 @@ namespace Recycler.Droid
             
 			LoadApplication(new App(path));
         }
+
+        /// <summary>
+        /// По умолчанию
+        /// </summary>
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
